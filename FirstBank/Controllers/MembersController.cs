@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace FirstBank.Controllers
 {
+  [Authorize]
   public class MembersController : Controller
   {
     private readonly FirstBankContext _db;
