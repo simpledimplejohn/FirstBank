@@ -1,4 +1,4 @@
-namespace ToDoList.ViewModels
+namespace FirstBank.ViewModels
 {
     public class LoginViewModel
     {

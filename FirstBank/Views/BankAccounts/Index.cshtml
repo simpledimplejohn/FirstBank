@@ -2,25 +2,25 @@
   Layout = "_Layout";
 }
 
-@using ToDoList.Models;
-@model IEnumerable<ToDoList.Models.Item>
+@using FirstBank.Models;
+@model IEnumerable<FirstBank.Models.BankAccount>
 
-<h1>Items for @User.Identity.Name</h1>
+<h1>BankAccounts for @User.Identity.Name</h1>
 
 @if (Model.Any())
 {
   <ul>
-    @foreach (Item item in Model)
+    @foreach (BankAccount bankaccount in Model)
     {
-      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId })</li>
+      <li>@Html.ActionLink($"{bankaccount.Description}", "Details", new { id = bankaccount.BankAccountId })</li>
     }
   </ul>
 } 
 else
 {
-  <h3>No items have been added yet!</h3>
+  <h3>No bankaccounts have been added yet!</h3>
 }
 
-<p>@Html.ActionLink("Add new item", "Create")</p>
+<p>@Html.ActionLink("Add new bankaccount", "Create")</p>
 
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

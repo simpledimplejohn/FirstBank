@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace ToDoList.Models
+namespace FirstBank.Models
 {
-  public class ToDoListContext : IdentityDbContext<ApplicationUser>
+  public class FirstBankContext : IdentityDbContext<ApplicationUser>
   {
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Item> Items { get; set; }
-    public DbSet<CategoryItem> CategoryItem { get; set; }
+    public DbSet<Member> Members { get; set; }
+    public DbSet<BankAccount> BankAccounts { get; set; }
+    public DbSet<MemberBankAccount> MemberBankAccount { get; set; }
 
-    public ToDoListContext(DbContextOptions options) : base(options) { }
+    public FirstBankContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

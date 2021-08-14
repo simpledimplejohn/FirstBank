@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ToDoList.ViewModels
+namespace FirstBank.ViewModels
 {
     public class RegisterViewModel
     {

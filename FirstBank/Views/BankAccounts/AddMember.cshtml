@@ -2,18 +2,18 @@
   Layout = "_Layout";
 }
 
-@model ToDoList.Models.Item
+@model FirstBank.Models.BankAccount
 
-<h2>Add a category</h2>
+<h2>Add a member</h2>
 
-<h4>Add a category to this task: @Html.DisplayFor(model => model.Description)</h4>
+<h4>Add a member to this task: @Html.DisplayFor(model => model.Description)</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.ItemId)
+  @Html.HiddenFor(model => model.BankAccountId)
 
-  @Html.Label("Select category")
-  @Html.DropDownList("CategoryId")
+  @Html.Label("Select member")
+  @Html.DropDownList("MemberId")
 
   <input type="submit" value="Save" />
 }

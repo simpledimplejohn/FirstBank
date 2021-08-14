@@ -1,18 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using ToDoList.Models;
+using FirstBank.Models;
 using System.Threading.Tasks;
-using ToDoList.ViewModels;
+using FirstBank.ViewModels;
 
-namespace ToDoList.Controllers
+namespace FirstBank.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ToDoListContext _db;
+        private readonly FirstBankContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ToDoListContext db)
+        public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, FirstBankContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;

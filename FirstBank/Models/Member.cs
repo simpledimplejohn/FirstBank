@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 
-namespace ToDoList.Models
+namespace FirstBank.Models
 {
-  public class Category
+  public class Member
   {
-    public Category()
+    public Member()
     {
-      this.JoinEntities = new HashSet<CategoryItem>();
+      this.JoinEntities = new HashSet<MemberBankAccount>();
     }
 
-    public int CategoryId { get; set; }
+    public int MemberId { get; set; }
     public string Name { get; set; }
-    public virtual ICollection<CategoryItem> JoinEntities { get; set; }
+    public virtual ICollection<MemberBankAccount> JoinEntities { get; set; }
   }
 }

@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model ToDoList.Models.Item
+@model FirstBank.Models.BankAccount
 
 <h2>Edit</h2>
 
@@ -10,13 +10,13 @@
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.ItemId)
+  @Html.HiddenFor(model => model.BankAccountId)
 
   @Html.LabelFor(model => model.Description)
   @Html.EditorFor(model => model.Description)
 
-  @Html.Label("Select category")
-  @Html.DropDownList("CategoryId")
+  @Html.Label("Select member")
+  @Html.DropDownList("MemberId")
 
   <input type="submit" value="Save" />
 }

@@ -1,11 +1,11 @@
-namespace ToDoList.Models
+namespace FirstBank.Models
 {
-  public class CategoryItem
+  public class MemberBankAccount
   {       
-    public int CategoryItemId { get; set; }
-    public int ItemId { get; set; }
-    public int CategoryId { get; set; }
-    public virtual Item Item { get; set; }
-    public virtual Category Category { get; set; }
+    public int MemberBankAccountId { get; set; }
+    public int BankAccountId { get; set; }
+    public int MemberId { get; set; }
+    public virtual BankAccount BankAccount { get; set; }
+    public virtual Member Member { get; set; }
   }
 }

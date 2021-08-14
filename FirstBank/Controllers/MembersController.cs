@@ -1,23 +1,23 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using FirstBank.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ToDoList.Controllers
+namespace FirstBank.Controllers
 {
-  public class CategoriesController : Controller
+  public class MembersController : Controller
   {
-    private readonly ToDoListContext _db;
+    private readonly FirstBankContext _db;
 
-    public CategoriesController(ToDoListContext db)
+    public MembersController(FirstBankContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<Category> model = _db.Categories.ToList();
+      List<Member> model = _db.Members.ToList();
       return View(model);
     }
 
@@ -27,46 +27,46 @@ namespace ToDoList.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Category category)
+    public ActionResult Create(Member member)
     {
-      _db.Categories.Add(category);
+      _db.Members.Add(member);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      var thisCategory = _db.Categories
-          .Include(category => category.JoinEntities)
-          .ThenInclude(join => join.Item)
-          .FirstOrDefault(category => category.CategoryId == id);
-      return View(thisCategory);
+      var thisMember = _db.Members
+          .Include(member => member.JoinEntities)
+          .ThenInclude(join => join.BankAccount)
+          .FirstOrDefault(member => member.MemberId == id);
+      return View(thisMember);
     }
     public ActionResult Edit(int id)
     {
-      var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-      return View(thisCategory);
+      var thisMember = _db.Members.FirstOrDefault(member => member.MemberId == id);
+      return View(thisMember);
     }
 
     [HttpPost]
-    public ActionResult Edit(Category category)
+    public ActionResult Edit(Member member)
     {
-      _db.Entry(category).State = EntityState.Modified;
+      _db.Entry(member).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-      return View(thisCategory);
+      var thisMember = _db.Members.FirstOrDefault(member => member.MemberId == id);
+      return View(thisMember);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-      _db.Categories.Remove(thisCategory);
+      var thisMember = _db.Members.FirstOrDefault(member => member.MemberId == id);
+      _db.Members.Remove(thisMember);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
